@@ -1,0 +1,96 @@
+\section{Repaso}
+
+\begin{enumerate}
+    \item Defina la integral definida y explique su interpretacion geométrica
+\end{enumerate}
+
+La integral definida se define como:
+\[
+\int_{a}^{b} f(x) \,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x
+\]
+Donde $f(x)$ es continua en el intervalo \([a,b]\), que se divide en \(n\) subintervalos de igual longitud \(\Delta x\), y \(x_i^*\) es el punto medio entre \(x_{i-1}\) y \(x_i\).
+La integral significa el área bajo la curva de la función \(f(x)\) en el intervalo \([a,b]\). Cuando n tiende a infinito, la suma de Riemann se convierte en el área exacta bajo la curva, ya que los rectángulos se hacen más pequeños y se ajustan mejor a la gráfica de la función.
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Calcule la suma de Riemann izquierda para \( f(x) = x^2 \) en \([0,1]\) con \(n = 4\).
+\end{enumerate}
+
+\[
+\Delta x = \frac{1}{4}
+\]
+
+\[
+x_i = a + i\,\Delta x 
+    = 0 + i \cdot \frac{1}{4} 
+\]
+
+\[
+x_i = \frac{i}{4}
+\]
+
+\[
+f(x_i) = \left(\frac{i}{4}\right)^2 
+       = \frac{i^2}{16}
+\]
+
+Si la sumatoria es por la izquierda, entonces \(i\) empieza en \(0\) y termina en \(n - 1\). 
+
+Si es por la derecha, entonces empieza en \(i = 1\) y termina en \(n\).
+
+\[
+k \sum_{i=0}^{n-1} f(x_i)
+\]
+
+\[
+\frac{1}{4} \sum_{i=0}^{n-1} \frac{1}{16} i^2
+\]
+
+\[
+\frac{1}{4} \cdot \frac{1}{16} \sum_{i=0}^{n-1} i^2
+\]
+
+\[
+\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}
+\]
+
+\[
+\sum_{i=0}^{3} i^2 = \frac{12 \cdot 7}{6} = 14
+\]
+
+\[
+\frac{1}{4} \cdot \frac{1}{16} \sum_{i=0}^{3} i^2 = \frac{1}{61} \cdot 14 = \frac{7}{32}
+\]
+
+\textbf{Comprobación sin fórmula de Gauss:}
+
+\[
+k (f(0k) + f(1k) + f(2k) + f(3k))
+\]
+
+\[
+k [0^2 + k^2 + (2k)^2 + (3k)^2]
+\]
+
+\[
+k [k^2 + 4k^2 + 9k^2]
+\]
+
+\[
+k [14k^2] = 14k^3
+\]
+
+\[
+= 14 \cdot \left(\frac{1}{4}\right)^3 = \frac{14}{64} = \frac{7}{32}
+\]
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Explique la diferencia entre una integral definida y una antiderivada
+\end{enumerate}
+
+La integral definida da como resultado un número correspondiente al área bajo la curva o función,
+La antiderivada podría considerarse el proceso contrario a la derivada, ya que la antiderivada de una
+función derivada da como resultado la función original sin derivar, más una constante K, en otras palabras,
+la antiderivada encuentra la función que modela el área bajo la curva, por ejemplo, la integral de la
+velocidad en función del tiempo es la distancia, ya que la primera función es la derivada de la segunda.

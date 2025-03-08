@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, tikz, graphicx}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry} % Paquete geometry para ajustar márgenes
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage{parskip} % Ajusta el espacio entre párrafos
+
+\setlength{\parindent}{1.5em} % Ajusta la longitud de la sangría
+\setlength{\parskip}{0.5em} % Ajusta el espacio entre párrafos
+
+\pgfplotsset{compat=1.18}
+
+% Definir el estilo "jupyter" para el código  
+\lstdefinestyle{jupyter}{  
+    backgroundcolor=\color{gray!10},  
+    basicstyle=\ttfamily\small,  
+    keywordstyle=\color{blue},  
+    commentstyle=\color{green!60!black},  
+    stringstyle=\color{red},  
+    breaklines=true,  
+    frame=single,  
+    language=Python,
+    extendedchars=true,
+    inputencoding=utf8,
+    showspaces=false,        % Desactiva la visualización de espacios
+    showstringspaces=false   % Desactiva la visualización de espacios en cadenas
+}  
+
+% Definiendo los caracteres especiales
+\lstset{
+  inputencoding=utf8/latin1,
+  extendedchars=true,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+           {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+           {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{¿}}1 {¡}{{¡}}1 {≈}{{$\approx$}}1
+           {≤}{{$\leq$}}1 {≥}{{$\geq$}}1 {≠}{{$\neq$}}1 {√}{{$\sqrt{}$}}1
+           {∞}{{$\infty$}}1 {α}{{$\alpha$}}1 {β}{{$\beta$}}1 {γ}{{$\gamma$}}1
+           {δ}{{$\delta$}}1 {ε}{{$\varepsilon$}}1 {θ}{{$\theta$}}1 {λ}{{$\lambda$}}1
+           {μ}{{$\mu$}}1 {π}{{$\pi$}}1 {ρ}{{$\rho$}}1 {σ}{{$\sigma$}}1
+           {τ}{{$\tau$}}1 {φ}{{$\phi$}}1 {ω}{{$\omega$}}1
+           {Γ}{{$\Gamma$}}1 {Δ}{{$\Delta$}}1 {Θ}{{$\Theta$}}1 {Λ}{{$\Lambda$}}1
+           {Π}{{$\Pi$}}1 {Σ}{{$\Sigma$}}1 {Φ}{{$\Phi$}}1 {Ω}{{$\Omega$}}1
+}
+
+
+\title{Cálculo Integral I-2025 301-302}
+\author{Johan Sebastián Posada Beltrán}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\input{secciones/repositorio.tex}
+\input{secciones/repaso.tex}
+\input{secciones/Rutinarios.tex}
+\input{secciones/NoRutinarios.tex}
+\input{secciones/aplicacion_ingenieria.tex}
+\input{secciones/python.tex}
+\input{secciones/Ejercicios_libro.tex}
+\input{secciones/Ejercicios_profesor.tex}
+
+
+\begin{thebibliography}{9}
+    \bibitem{1} Stewart J. -- \emph{Calculus Concepts and Contexts}, 2ª ed., Thomson (2004).
+    \bibitem{2} Boyce, W. E.; DiPrima, R. C.; Meade, D. B. -- \emph{Elementary Differential Equations and Boundary Value Problems}, Wiley (2021).
+    \bibitem{3} Marsden, J.; Tromba, A. -- \emph{Cálculo Vectorial}, (1991).
+    \bibitem{4} Apostol, T. -- \emph{Calculus Volumen I: Cálculo con funciones de una variable, con una introducción al álgebra lineal}, 2ª ed., Reverte (2001).
+\end{thebibliography}
+
+\end{document}
