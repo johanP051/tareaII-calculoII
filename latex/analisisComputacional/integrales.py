@@ -99,9 +99,9 @@ class Riemann(Metodos):
         super().__init__(n, a, b)
 
     def sumatoria_izquierda(self, funcion: Metodos):
-        x = np.zeros(self.n)
+        x = np.zeros(self.n) #Para esta sumatoria solo necesito n puntos, si n = 2, necesito 2 puntos: x_0 y x_1 = x_(n-1) para trazar un rectangulo con altura x_0 y otro con altura x_1
 
-        for i in range(0, self.n):
+        for i in range(0, self.n): #La suma de Riemann por izquierda va desde x_0 hasta x_(n-1)
             x[i] = self.a + self.k * i
 
         suma = 0
@@ -112,7 +112,7 @@ class Riemann(Metodos):
     def sumatoria_derecha(self, funcion: Metodos):
         x = np.zeros(self.n + 1)
 
-        for i in range(1, self.n + 1):
+        for i in range(1, self.n + 1): #La suma de Riemann por izquierda va desde x_1 hasta x_(n)
             x[i] = self.a + self.k * i
 
         suma = 0
@@ -121,14 +121,14 @@ class Riemann(Metodos):
         return self.k * suma
     
     def sumatoria_medio(self, funcion: Metodos):
-        x = np.zeros(self.n + 1)
+        x = np.zeros(self.n + 1) #Si el usuario quiere n = 2 rectangulos, entonces debo tener n+1 = 3 puntos X_i = (x_0, x_1, x_2) para hallar las alturas f(x) en los puntos medios de los intervalos ([x_0, x_1], [x_1, x_2])
 
-        for i in range(1, self.n + 1):
+        for i in range(0, self.n + 1):
             x[i] = self.a + self.k * i
         
         suma = 0
         for i in range(1, self.n + 1):
-            punto_medio = (x[i] + x[i - 1]) / 2
+            punto_medio = self.a + ((i - 1/2) * self.k) #La demostracion a esta fórmula la hago en el ejercicio 11 de la sección: Ejercicios del libro del pdf en Latex
             suma += funcion(punto_medio)
         return self.k * suma
 
@@ -148,28 +148,28 @@ class Trapecio(Metodos):
 
         return self.k * (((1/2) * funcion(x[0])) + (suma) + ((1/2) * funcion(x[self.n])))
 
+#Para este metodo consulté la fórmula en internet, ya que la demostración es compleja
 class Simpson(Metodos):
     def __init__(self, n, a, b):
+        if n % 2 != 0: #n tiene que ser par, si es impar se le suma 1
+            n = n + 1
         super().__init__(n, a, b)
-        if self.n % 2 != 0: #n tiene que ser par, si es impar se le suma 1
-            self.n = self.n + 1
 
     def sumatoria(self, funcion: Metodos):
         x = np.zeros(self.n + 1)
-        for i in range(1, self.n + 1):
+        for i in range(0, self.n + 1):
             x[i] = self.a + (self.k * i)
 
         #Para los impares
         sumaImpares = 0
         for i in range(1, self.n, 2):
             sumaImpares += funcion(x[i])
-            # print(f"Impares: {2*i - 1}")
+            # print(f"Impar: {i}")
         
         sumaPares = 0
-        for i in range(1, self.n//2):
-            par = 2 * i
-            sumaPares += funcion(x[par])
-            # print(f"Pares: {2*i}")
+        for i in range(2, self.n, 2):
+            sumaPares += funcion(x[i])
+            # print(f"Par: {i}")
 
         return (self.k / 3) * (funcion(x[0]) + 4*sumaImpares + 2*sumaPares + funcion(x[self.n]))
 
