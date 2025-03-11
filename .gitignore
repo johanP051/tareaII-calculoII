@@ -1,1 +1,7 @@
 II Cálculo Integral I 2025..pdf
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
